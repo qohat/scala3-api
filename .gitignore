@@ -5,3 +5,5 @@ target/
 .bloop/
 .ammonite/
 metals.sbt
+/project/project
+/.idea
