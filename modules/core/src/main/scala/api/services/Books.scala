@@ -5,6 +5,10 @@ import api.repos.BookInMemoryRepository
 import zio.IO
 import java.io.IOException
 
+sealed trait MyError
+case object Error1
+case object Error2
+
 trait Books:
   def findAll: IO[IOException, List[Book]]
   def findBy(id: BookId): IO[IOException, Option[Book]]
