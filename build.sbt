@@ -28,7 +28,10 @@ lazy val tests = (project in file("modules/tests"))
     scalafixCommonSettings,
     libraryDependencies ++= Seq(
       Libraries.zio,
-      Libraries.zioStreams
+      Libraries.zioStreams,
+      Libraries.http4sDsl,
+      Libraries.http4sBlaze,
+      Libraries.http4sCirce
     )
   )
   .dependsOn(core)
@@ -48,7 +51,10 @@ lazy val core = (project in file("modules/core"))
     dockerUpdateLatest := true,
     libraryDependencies ++= Seq(
       Libraries.zio,
-      Libraries.zioStreams
+      Libraries.zioStreams,
+      Libraries.http4sDsl,
+      Libraries.http4sBlaze,
+      Libraries.http4sCirce
     )
   )
 
