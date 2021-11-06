@@ -37,7 +37,6 @@ object Main extends IOApp:
         .as(ExitCode.Success)
     } yield blazeServer
 
-    
 /*@main def hello: Unit =
   println("Hello world!")
   println(msg)

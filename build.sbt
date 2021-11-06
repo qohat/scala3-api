@@ -10,6 +10,8 @@ ThisBuild / organizationName := "com.qohat"
 ThisBuild / evictionErrorLevel := Level.Warn
 ThisBuild / scalafixDependencies += Libraries.organizeImports
 
+resolvers += Resolver.sonatypeRepo("snapshots")
+
 val scalafixCommonSettings = inConfig(IntegrationTest)(scalafixConfigSettings(IntegrationTest))
 
 lazy val root = (project in file("."))
@@ -35,7 +37,13 @@ lazy val tests = (project in file("modules/tests"))
       Libraries.circeGeneric,
       Libraries.circeParser,
       Libraries.log4cats,
-      Libraries.logback % Runtime
+      Libraries.logback % Runtime,
+      Libraries.derevoCore,
+      Libraries.derevoCats,
+      Libraries.derevoCirce,
+      Libraries.refinedCore,
+      Libraries.refinedCats,
+      Libraries.newtype
     )
   )
   .dependsOn(core)
@@ -47,6 +55,7 @@ lazy val core = (project in file("modules/core"))
     name := "scala3-zio-core",
     Docker / packageName := "scala3-zio",
     scalafmtOnCompile := true,
+    resolvers += Resolver.sonatypeRepo("snapshots"),
     Defaults.itSettings,
     scalafixCommonSettings,
     dockerBaseImage := "openjdk:11-jre-slim-buster",
@@ -62,7 +71,13 @@ lazy val core = (project in file("modules/core"))
       Libraries.circeGeneric,
       Libraries.circeParser,
       Libraries.log4cats,
-      Libraries.logback % Runtime
+      Libraries.logback % Runtime,
+      Libraries.derevoCore,
+      Libraries.derevoCats,
+      Libraries.derevoCirce,
+      Libraries.refinedCore,
+      Libraries.refinedCats,
+      Libraries.newtype
     )
   )
 
