@@ -1,4 +1,4 @@
-# scala3-zio
+# scala3-api
 
 ## sbt project compiled with Scala 3
 

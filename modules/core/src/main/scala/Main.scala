@@ -16,9 +16,15 @@ import java.util.UUID
 object Main extends IOApp:
   val id0 = BrandId(UUID.randomUUID)
   val id1 = BrandId(UUID.randomUUID)
-  val inMemoryMap = Map[BrandId, Brand](
-    id0 -> Brand(id0, "New Brand", Category.COMEDY, 12, "Jez"),
-    id1 -> Brand(id1, "Another Brand with information from book", Category.SCIENCE_FICTION, 15, "Alejandro")
+  val inMemoryMap = Map[String, Brand](
+    id0.value.toString -> Brand(id0, "New Brand", Category.COMEDY.toString, 12, "Jez"),
+    id1.value.toString -> Brand(
+      id1,
+      "Another Brand with information from book",
+      Category.SCIENCE_FICTION.toString,
+      15,
+      "Alejandro"
+    )
   )
   def run(args: List[String]): IO[ExitCode] =
     for {
