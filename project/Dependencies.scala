@@ -2,8 +2,10 @@ import sbt._
 
 object Dependencies {
     object Version {
-        val zio = "2.0.0-M2"
+        val cats = "3.2.9"
         val http4s = "0.23.6"
+        val circe = "0.14.1"
+        val log4cats = "2.1.1"
         val betterMonadicFor = "0.3.1"
         val kindProjector    = "0.13.2"
         val logback          = "1.2.6"
@@ -12,15 +14,23 @@ object Dependencies {
     }
 
     object Libraries {
-        def zioDep(artifact: String): ModuleID = "dev.zio" %% artifact % Version.zio
+        def cats(artifact: String): ModuleID = "org.typelevel" %% artifact % Version.cats withSources() withJavadoc()
         def http4s(artifact: String): ModuleID = "org.http4s" %% artifact % Version.http4s
+        def circe(artifact: String): ModuleID = "io.circe" %% artifact % Version.circe
 
-        val zio    = zioDep("zio")
-        val zioStreams = zioDep("zio-streams")
+        val catsEffect = cats("cats-effect") 
         val http4sDsl = http4s("http4s-dsl")
         val http4sBlaze = http4s("http4s-blaze-server")
         val http4sCirce = http4s("http4s-circe")
+        val circeCore = circe("circe-core")
+        val circeGeneric = circe("circe-generic")
+        val circeParser = circe("circe-parser")
+
+        val log4cats = "org.typelevel" %% "log4cats-slf4j" % Version.log4cats
         val organizeImports = "com.github.liancheng" %% "organize-imports" % Version.organizeImports
+
+        // Runtime
+        val logback = "ch.qos.logback" % "logback-classic" % Version.logback
     }
 
     object CompilerPlugin {
