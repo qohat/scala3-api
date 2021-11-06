@@ -27,11 +27,15 @@ lazy val tests = (project in file("modules/tests"))
     Defaults.itSettings,
     scalafixCommonSettings,
     libraryDependencies ++= Seq(
-      Libraries.zio,
-      Libraries.zioStreams,
+      Libraries.catsEffect,
       Libraries.http4sDsl,
       Libraries.http4sBlaze,
-      Libraries.http4sCirce
+      Libraries.http4sCirce,
+      Libraries.circeCore,
+      Libraries.circeGeneric,
+      Libraries.circeParser,
+      Libraries.log4cats,
+      Libraries.logback % Runtime
     )
   )
   .dependsOn(core)
@@ -50,11 +54,15 @@ lazy val core = (project in file("modules/core"))
     makeBatScripts := Seq(),
     dockerUpdateLatest := true,
     libraryDependencies ++= Seq(
-      Libraries.zio,
-      Libraries.zioStreams,
+      Libraries.catsEffect,
       Libraries.http4sDsl,
       Libraries.http4sBlaze,
-      Libraries.http4sCirce
+      Libraries.http4sCirce,
+      Libraries.circeCore,
+      Libraries.circeGeneric,
+      Libraries.circeParser,
+      Libraries.log4cats,
+      Libraries.logback % Runtime
     )
   )
 
