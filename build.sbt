@@ -37,7 +37,8 @@ lazy val tests = (project in file("modules/tests"))
       Libraries.circeGeneric,
       Libraries.circeParser,
       Libraries.log4cats,
-      Libraries.logback % Runtime
+      Libraries.logback % Runtime,
+      Libraries.skunk
     )
   )
   .dependsOn(core)
@@ -65,7 +66,8 @@ lazy val core = (project in file("modules/core"))
       Libraries.circeGeneric,
       Libraries.circeParser,
       Libraries.log4cats,
-      Libraries.logback % Runtime
+      Libraries.logback % Runtime,
+      Libraries.skunk
     )
   )
 
