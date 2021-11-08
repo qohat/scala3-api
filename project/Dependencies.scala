@@ -5,6 +5,7 @@ object Dependencies {
         val cats = "3.2.9"
         val http4s = "0.23.6"
         val circe = "0.14.1"
+        val skunk = "0.2.0"
         val derevo        = "0.12.6"
         val newtype       = "0.4.4"
         val refined       = "0.9.27"
@@ -31,6 +32,8 @@ object Dependencies {
         val circeCore = circe("circe-core")
         val circeGeneric = circe("circe-generic")
         val circeParser = circe("circe-parser")
+
+        val skunk = "org.tpolecat" %% "skunk-core" % Version.skunk
 
         val log4cats = "org.typelevel" %% "log4cats-slf4j" % Version.log4cats
         val organizeImports = "com.github.liancheng" %% "organize-imports" % Version.organizeImports
